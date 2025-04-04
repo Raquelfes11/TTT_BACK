@@ -126,7 +126,7 @@ a_7 = Auction(
     stock=91,
     brand='Dior',
     category=cat_1,
-    thumbnail='https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png',
+    thumbnail='https://cdn.dummyjson.com/products/images/fragrances/Dior%20J\'adore/thumbnail.png',
     closing_date=timezone.now() + timedelta(days=5)
 )
 a_7.save()

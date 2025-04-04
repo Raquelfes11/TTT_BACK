@@ -30,7 +30,7 @@ for i, product in enumerate(data):
     rating = product.get("rating", 0)
     stock = product.get("stock", 0)
     brand = product.get("brand", "Unknown").replace("'", "\\'")  # Default to "Unknown" if no brand
-    thumbnail = product.get("thumbnail", "")
+    thumbnail = product.get("thumbnail", "").replace("'", "\\'")  # Escape any single quotes in the URL
     category_var = category_var_map.get(product.get("category", "").capitalize(), "cat_0")  # Default to first category
     
     auction_commands.append(
@@ -68,5 +68,5 @@ with open("load_data_commands.txt", "w", encoding="utf-8") as f:
     f.write("\n\n# ---- PUJAS ----\n")
     f.write("\n\n".join(bid_commands))
 
-print("Script completado. Revisa el archivo 'load_data_commands.txt'")
+
 
