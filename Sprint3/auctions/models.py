@@ -29,7 +29,7 @@ class Auction(models.Model):
         return self.title
     
 class Bid(models.Model):
-    id = models.IntegerField()
+    #id = models.IntegerField()
     auction = models.ForeignKey(Auction, related_name="bids", on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     creation_date = models.DateTimeField(auto_now_add=True)
@@ -39,4 +39,4 @@ class Bid(models.Model):
         ordering = ("id",)
     
     def __str__(self):
-        return self.id
+        return f"Puja {self.id} - {self.bidder}"
