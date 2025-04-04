@@ -1,0 +1,1629 @@
+from auctions.models import Category, Auction, Bid
+from django.utils import timezone
+from datetime import timedelta
+
+# ---- CATEGORÍAS ----
+cat_0 = Category(name='Beauty')
+cat_0.save()  # ID -> 1
+cat_1 = Category(name='Fragrances')
+cat_1.save()  # ID -> 2
+cat_2 = Category(name='Furniture')
+cat_2.save()  # ID -> 3
+cat_3 = Category(name='Groceries')
+cat_3.save()  # ID -> 4
+cat_4 = Category(name='Home-decoration')
+cat_4.save()  # ID -> 5
+cat_5 = Category(name='Kitchen-accessories')
+cat_5.save()  # ID -> 6
+cat_6 = Category(name='Laptops')
+cat_6.save()  # ID -> 7
+cat_7 = Category(name='Mens-shirts')
+cat_7.save()  # ID -> 8
+cat_8 = Category(name='Mens-shoes')
+cat_8.save()  # ID -> 9
+cat_9 = Category(name='Mens-watches')
+cat_9.save()  # ID -> 10
+cat_10 = Category(name='Mobile-accessories')
+cat_10.save()  # ID -> 11
+
+# ---- SUBASTAS ----
+a_0 = Auction(
+    title='Essence Mascara Lash Princess',
+    description='The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.',
+    price=9.99,
+    rating=4.94,
+    stock=5,
+    brand='Essence',
+    category=cat_0,
+    thumbnail='https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_0.save()
+
+a_1 = Auction(
+    title='Eyeshadow Palette with Mirror',
+    description='The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it\'s convenient for on-the-go makeup application.',
+    price=19.99,
+    rating=3.28,
+    stock=44,
+    brand='Glamour Beauty',
+    category=cat_0,
+    thumbnail='https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_1.save()
+
+a_2 = Auction(
+    title='Powder Canister',
+    description='The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.',
+    price=14.99,
+    rating=3.82,
+    stock=59,
+    brand='Velvet Touch',
+    category=cat_0,
+    thumbnail='https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_2.save()
+
+a_3 = Auction(
+    title='Red Lipstick',
+    description='The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.',
+    price=12.99,
+    rating=2.51,
+    stock=68,
+    brand='Chic Cosmetics',
+    category=cat_0,
+    thumbnail='https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_3.save()
+
+a_4 = Auction(
+    title='Red Nail Polish',
+    description='The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.',
+    price=8.99,
+    rating=3.91,
+    stock=71,
+    brand='Nail Couture',
+    category=cat_0,
+    thumbnail='https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_4.save()
+
+a_5 = Auction(
+    title='Calvin Klein CK One',
+    description='CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It\'s a versatile fragrance suitable for everyday wear.',
+    price=49.99,
+    rating=4.85,
+    stock=17,
+    brand='Calvin Klein',
+    category=cat_1,
+    thumbnail='https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_5.save()
+
+a_6 = Auction(
+    title='Chanel Coco Noir Eau De',
+    description='Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.',
+    price=129.99,
+    rating=2.76,
+    stock=41,
+    brand='Chanel',
+    category=cat_1,
+    thumbnail='https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_6.save()
+
+a_7 = Auction(
+    title='Dior J\'adore',
+    description='J\'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.',
+    price=89.99,
+    rating=3.31,
+    stock=91,
+    brand='Dior',
+    category=cat_1,
+    thumbnail='https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_7.save()
+
+a_8 = Auction(
+    title='Dolce Shine Eau de',
+    description='Dolce Shine by Dolce & Gabbana is a vibrant and fruity fragrance, featuring notes of mango, jasmine, and blonde woods. It\'s a joyful and youthful scent.',
+    price=69.99,
+    rating=2.68,
+    stock=3,
+    brand='Dolce & Gabbana',
+    category=cat_1,
+    thumbnail='https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_8.save()
+
+a_9 = Auction(
+    title='Gucci Bloom Eau de',
+    description='Gucci Bloom by Gucci is a floral and captivating fragrance, with notes of tuberose, jasmine, and Rangoon creeper. It\'s a modern and romantic scent.',
+    price=79.99,
+    rating=2.69,
+    stock=93,
+    brand='Gucci',
+    category=cat_1,
+    thumbnail='https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_9.save()
+
+a_10 = Auction(
+    title='Annibale Colombo Bed',
+    description='The Annibale Colombo Bed is a luxurious and elegant bed frame, crafted with high-quality materials for a comfortable and stylish bedroom.',
+    price=1899.99,
+    rating=4.14,
+    stock=47,
+    brand='Annibale Colombo',
+    category=cat_2,
+    thumbnail='https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_10.save()
+
+a_11 = Auction(
+    title='Annibale Colombo Sofa',
+    description='The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.',
+    price=2499.99,
+    rating=3.08,
+    stock=16,
+    brand='Annibale Colombo',
+    category=cat_2,
+    thumbnail='https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Sofa/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_11.save()
+
+a_12 = Auction(
+    title='Bedside Table African Cherry',
+    description='The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance.',
+    price=299.99,
+    rating=4.48,
+    stock=16,
+    brand='Furniture Co.',
+    category=cat_2,
+    thumbnail='https://cdn.dummyjson.com/products/images/furniture/Bedside%20Table%20African%20Cherry/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_12.save()
+
+a_13 = Auction(
+    title='Knoll Saarinen Executive Conference Chair',
+    description='The Knoll Saarinen Executive Conference Chair is a modern and ergonomic chair, perfect for your office or conference room with its timeless design.',
+    price=499.99,
+    rating=4.11,
+    stock=47,
+    brand='Knoll',
+    category=cat_2,
+    thumbnail='https://cdn.dummyjson.com/products/images/furniture/Knoll%20Saarinen%20Executive%20Conference%20Chair/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_13.save()
+
+a_14 = Auction(
+    title='Wooden Bathroom Sink With Mirror',
+    description='The Wooden Bathroom Sink with Mirror is a unique and stylish addition to your bathroom, featuring a wooden sink countertop and a matching mirror.',
+    price=799.99,
+    rating=3.26,
+    stock=95,
+    brand='Bath Trends',
+    category=cat_2,
+    thumbnail='https://cdn.dummyjson.com/products/images/furniture/Wooden%20Bathroom%20Sink%20With%20Mirror/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_14.save()
+
+a_15 = Auction(
+    title='Apple',
+    description='Fresh and crisp apples, perfect for snacking or incorporating into various recipes.',
+    price=1.99,
+    rating=2.96,
+    stock=9,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_15.save()
+
+a_16 = Auction(
+    title='Beef Steak',
+    description='High-quality beef steak, great for grilling or cooking to your preferred level of doneness.',
+    price=12.99,
+    rating=2.83,
+    stock=96,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Beef%20Steak/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_16.save()
+
+a_17 = Auction(
+    title='Cat Food',
+    description='Nutritious cat food formulated to meet the dietary needs of your feline friend.',
+    price=8.99,
+    rating=2.88,
+    stock=13,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Cat%20Food/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_17.save()
+
+a_18 = Auction(
+    title='Chicken Meat',
+    description='Fresh and tender chicken meat, suitable for various culinary preparations.',
+    price=9.99,
+    rating=4.61,
+    stock=69,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Chicken%20Meat/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_18.save()
+
+a_19 = Auction(
+    title='Cooking Oil',
+    description='Versatile cooking oil suitable for frying, sautéing, and various culinary applications.',
+    price=4.99,
+    rating=4.01,
+    stock=22,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Cooking%20Oil/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_19.save()
+
+a_20 = Auction(
+    title='Cucumber',
+    description='Crisp and hydrating cucumbers, ideal for salads, snacks, or as a refreshing side.',
+    price=1.49,
+    rating=4.71,
+    stock=22,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Cucumber/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_20.save()
+
+a_21 = Auction(
+    title='Dog Food',
+    description='Specially formulated dog food designed to provide essential nutrients for your canine companion.',
+    price=10.99,
+    rating=2.74,
+    stock=40,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Dog%20Food/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_21.save()
+
+a_22 = Auction(
+    title='Eggs',
+    description='Fresh eggs, a versatile ingredient for baking, cooking, or breakfast.',
+    price=2.99,
+    rating=4.46,
+    stock=10,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Eggs/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_22.save()
+
+a_23 = Auction(
+    title='Fish Steak',
+    description='Quality fish steak, suitable for grilling, baking, or pan-searing.',
+    price=14.99,
+    rating=4.83,
+    stock=99,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Fish%20Steak/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_23.save()
+
+a_24 = Auction(
+    title='Green Bell Pepper',
+    description='Fresh and vibrant green bell pepper, perfect for adding color and flavor to your dishes.',
+    price=1.29,
+    rating=4.28,
+    stock=89,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Green%20Bell%20Pepper/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_24.save()
+
+a_25 = Auction(
+    title='Green Chili Pepper',
+    description='Spicy green chili pepper, ideal for adding heat to your favorite recipes.',
+    price=0.99,
+    rating=4.43,
+    stock=8,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Green%20Chili%20Pepper/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_25.save()
+
+a_26 = Auction(
+    title='Honey Jar',
+    description='Pure and natural honey in a convenient jar, perfect for sweetening beverages or drizzling over food.',
+    price=6.99,
+    rating=3.5,
+    stock=25,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Honey%20Jar/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_26.save()
+
+a_27 = Auction(
+    title='Ice Cream',
+    description='Creamy and delicious ice cream, available in various flavors for a delightful treat.',
+    price=5.49,
+    rating=3.77,
+    stock=76,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Ice%20Cream/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_27.save()
+
+a_28 = Auction(
+    title='Juice',
+    description='Refreshing fruit juice, packed with vitamins and great for staying hydrated.',
+    price=3.99,
+    rating=3.41,
+    stock=99,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Juice/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_28.save()
+
+a_29 = Auction(
+    title='Kiwi',
+    description='Nutrient-rich kiwi, perfect for snacking or adding a tropical twist to your dishes.',
+    price=2.49,
+    rating=4.37,
+    stock=1,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Kiwi/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_29.save()
+
+a_30 = Auction(
+    title='Lemon',
+    description='Zesty and tangy lemons, versatile for cooking, baking, or making refreshing beverages.',
+    price=0.79,
+    rating=4.25,
+    stock=0,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Lemon/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_30.save()
+
+a_31 = Auction(
+    title='Milk',
+    description='Fresh and nutritious milk, a staple for various recipes and daily consumption.',
+    price=3.49,
+    rating=3.14,
+    stock=57,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Milk/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_31.save()
+
+a_32 = Auction(
+    title='Mulberry',
+    description='Sweet and juicy mulberries, perfect for snacking or adding to desserts and cereals.',
+    price=4.99,
+    rating=3.19,
+    stock=79,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Mulberry/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_32.save()
+
+a_33 = Auction(
+    title='Nescafe Coffee',
+    description='Quality coffee from Nescafe, available in various blends for a rich and satisfying cup.',
+    price=7.99,
+    rating=2.54,
+    stock=22,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Nescafe%20Coffee/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_33.save()
+
+a_34 = Auction(
+    title='Potatoes',
+    description='Versatile and starchy potatoes, great for roasting, mashing, or as a side dish.',
+    price=2.29,
+    rating=3.82,
+    stock=8,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Potatoes/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_34.save()
+
+a_35 = Auction(
+    title='Protein Powder',
+    description='Nutrient-packed protein powder, ideal for supplementing your diet with essential proteins.',
+    price=19.99,
+    rating=3.91,
+    stock=65,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Protein%20Powder/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_35.save()
+
+a_36 = Auction(
+    title='Red Onions',
+    description='Flavorful and aromatic red onions, perfect for adding depth to your savory dishes.',
+    price=1.99,
+    rating=4.08,
+    stock=86,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Red%20Onions/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_36.save()
+
+a_37 = Auction(
+    title='Rice',
+    description='High-quality rice, a staple for various cuisines and a versatile base for many dishes.',
+    price=5.99,
+    rating=3.94,
+    stock=49,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Rice/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_37.save()
+
+a_38 = Auction(
+    title='Soft Drinks',
+    description='Assorted soft drinks in various flavors, perfect for refreshing beverages.',
+    price=1.99,
+    rating=4.59,
+    stock=78,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Soft%20Drinks/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_38.save()
+
+a_39 = Auction(
+    title='Strawberry',
+    description='Sweet and succulent strawberries, great for snacking, desserts, or blending into smoothies.',
+    price=3.99,
+    rating=4.5,
+    stock=9,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Strawberry/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_39.save()
+
+a_40 = Auction(
+    title='Tissue Paper Box',
+    description='Convenient tissue paper box for everyday use, providing soft and absorbent tissues.',
+    price=2.49,
+    rating=4.55,
+    stock=97,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Tissue%20Paper%20Box/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_40.save()
+
+a_41 = Auction(
+    title='Water',
+    description='Pure and refreshing bottled water, essential for staying hydrated throughout the day.',
+    price=0.99,
+    rating=2.93,
+    stock=95,
+    brand='Unknown',
+    category=cat_3,
+    thumbnail='https://cdn.dummyjson.com/products/images/groceries/Water/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_41.save()
+
+a_42 = Auction(
+    title='Decoration Swing',
+    description='The Decoration Swing is a charming addition to your home decor. Crafted with intricate details, it adds a touch of elegance and whimsy to any room.',
+    price=59.99,
+    rating=3.56,
+    stock=62,
+    brand='Unknown',
+    category=cat_4,
+    thumbnail='https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_42.save()
+
+a_43 = Auction(
+    title='Family Tree Photo Frame',
+    description='The Family Tree Photo Frame is a sentimental and stylish way to display your cherished family memories. With multiple photo slots, it tells the story of your loved ones.',
+    price=29.99,
+    rating=3.84,
+    stock=34,
+    brand='Unknown',
+    category=cat_4,
+    thumbnail='https://cdn.dummyjson.com/products/images/home-decoration/Family%20Tree%20Photo%20Frame/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_43.save()
+
+a_44 = Auction(
+    title='House Showpiece Plant',
+    description='The House Showpiece Plant is an artificial plant that brings a touch of nature to your home without the need for maintenance. It adds greenery and style to any space.',
+    price=39.99,
+    rating=3.61,
+    stock=89,
+    brand='Unknown',
+    category=cat_4,
+    thumbnail='https://cdn.dummyjson.com/products/images/home-decoration/House%20Showpiece%20Plant/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_44.save()
+
+a_45 = Auction(
+    title='Plant Pot',
+    description='The Plant Pot is a stylish container for your favorite plants. With a sleek design, it complements your indoor or outdoor garden, adding a modern touch to your plant display.',
+    price=14.99,
+    rating=3.33,
+    stock=70,
+    brand='Unknown',
+    category=cat_4,
+    thumbnail='https://cdn.dummyjson.com/products/images/home-decoration/Plant%20Pot/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_45.save()
+
+a_46 = Auction(
+    title='Table Lamp',
+    description='The Table Lamp is a functional and decorative lighting solution for your living space. With a modern design, it provides both ambient and task lighting, enhancing the atmosphere.',
+    price=49.99,
+    rating=4.56,
+    stock=84,
+    brand='Unknown',
+    category=cat_4,
+    thumbnail='https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_46.save()
+
+a_47 = Auction(
+    title='Bamboo Spatula',
+    description='The Bamboo Spatula is a versatile kitchen tool made from eco-friendly bamboo. Ideal for flipping, stirring, and serving various dishes.',
+    price=7.99,
+    rating=4.4,
+    stock=0,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Bamboo%20Spatula/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_47.save()
+
+a_48 = Auction(
+    title='Black Aluminium Cup',
+    description='The Black Aluminium Cup is a stylish and durable cup suitable for both hot and cold beverages. Its sleek black design adds a modern touch to your drinkware collection.',
+    price=5.99,
+    rating=3.62,
+    stock=42,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_48.save()
+
+a_49 = Auction(
+    title='Black Whisk',
+    description='The Black Whisk is a kitchen essential for whisking and beating ingredients. Its ergonomic handle and sleek design make it a practical and stylish tool.',
+    price=9.99,
+    rating=2.88,
+    stock=17,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Whisk/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_49.save()
+
+a_50 = Auction(
+    title='Boxed Blender',
+    description='The Boxed Blender is a powerful and compact blender perfect for smoothies, shakes, and more. Its convenient design and multiple functions make it a versatile kitchen appliance.',
+    price=39.99,
+    rating=2.73,
+    stock=81,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Boxed%20Blender/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_50.save()
+
+a_51 = Auction(
+    title='Carbon Steel Wok',
+    description='The Carbon Steel Wok is a versatile cooking pan suitable for stir-frying, sautéing, and deep frying. Its sturdy construction ensures even heat distribution for delicious meals.',
+    price=29.99,
+    rating=2.94,
+    stock=2,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Carbon%20Steel%20Wok/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_51.save()
+
+a_52 = Auction(
+    title='Chopping Board',
+    description='The Chopping Board is an essential kitchen accessory for food preparation. Made from durable material, it provides a safe and hygienic surface for cutting and chopping.',
+    price=12.99,
+    rating=4.82,
+    stock=53,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Chopping%20Board/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_52.save()
+
+a_53 = Auction(
+    title='Citrus Squeezer Yellow',
+    description='The Citrus Squeezer in Yellow is a handy tool for extracting juice from citrus fruits. Its vibrant color adds a cheerful touch to your kitchen gadgets.',
+    price=8.99,
+    rating=4.18,
+    stock=59,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Citrus%20Squeezer%20Yellow/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_53.save()
+
+a_54 = Auction(
+    title='Egg Slicer',
+    description='The Egg Slicer is a convenient tool for slicing boiled eggs evenly. It\'s perfect for salads, sandwiches, and other dishes where sliced eggs are desired.',
+    price=6.99,
+    rating=2.91,
+    stock=30,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Egg%20Slicer/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_54.save()
+
+a_55 = Auction(
+    title='Electric Stove',
+    description='The Electric Stove provides a portable and efficient cooking solution. Ideal for small kitchens or as an additional cooking surface for various culinary needs.',
+    price=49.99,
+    rating=4.84,
+    stock=41,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Electric%20Stove/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_55.save()
+
+a_56 = Auction(
+    title='Fine Mesh Strainer',
+    description='The Fine Mesh Strainer is a versatile tool for straining liquids and sifting dry ingredients. Its fine mesh ensures efficient filtering for smooth cooking and baking.',
+    price=9.99,
+    rating=3.7,
+    stock=13,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Fine%20Mesh%20Strainer/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_56.save()
+
+a_57 = Auction(
+    title='Fork',
+    description='The Fork is a classic utensil for various dining and serving purposes. Its durable and ergonomic design makes it a reliable choice for everyday use.',
+    price=3.99,
+    rating=4.18,
+    stock=10,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Fork/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_57.save()
+
+a_58 = Auction(
+    title='Glass',
+    description='The Glass is a versatile and elegant drinking vessel suitable for a variety of beverages. Its clear design allows you to enjoy the colors and textures of your drinks.',
+    price=4.99,
+    rating=3.06,
+    stock=68,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Glass/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_58.save()
+
+a_59 = Auction(
+    title='Grater Black',
+    description='The Grater in Black is a handy kitchen tool for grating cheese, vegetables, and more. Its sleek design and sharp blades make food preparation efficient and easy.',
+    price=10.99,
+    rating=2.87,
+    stock=80,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Grater%20Black/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_59.save()
+
+a_60 = Auction(
+    title='Hand Blender',
+    description='The Hand Blender is a versatile kitchen appliance for blending, pureeing, and mixing. Its compact design and powerful motor make it a convenient tool for various recipes.',
+    price=34.99,
+    rating=3.71,
+    stock=8,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Hand%20Blender/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_60.save()
+
+a_61 = Auction(
+    title='Ice Cube Tray',
+    description='The Ice Cube Tray is a practical accessory for making ice cubes in various shapes. Perfect for keeping your drinks cool and adding a fun element to your beverages.',
+    price=5.99,
+    rating=3.27,
+    stock=81,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Ice%20Cube%20Tray/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_61.save()
+
+a_62 = Auction(
+    title='Kitchen Sieve',
+    description='The Kitchen Sieve is a versatile tool for sifting and straining dry and wet ingredients. Its fine mesh design ensures smooth results in your cooking and baking.',
+    price=7.99,
+    rating=2.96,
+    stock=33,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Kitchen%20Sieve/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_62.save()
+
+a_63 = Auction(
+    title='Knife',
+    description='The Knife is an essential kitchen tool for chopping, slicing, and dicing. Its sharp blade and ergonomic handle make it a reliable choice for food preparation.',
+    price=14.99,
+    rating=4.31,
+    stock=59,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Knife/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_63.save()
+
+a_64 = Auction(
+    title='Lunch Box',
+    description='The Lunch Box is a convenient and portable container for packing and carrying your meals. With compartments for different foods, it\'s perfect for on-the-go dining.',
+    price=12.99,
+    rating=2.84,
+    stock=26,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Lunch%20Box/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_64.save()
+
+a_65 = Auction(
+    title='Microwave Oven',
+    description='The Microwave Oven is a versatile kitchen appliance for quick and efficient cooking, reheating, and defrosting. Its compact size makes it suitable for various kitchen setups.',
+    price=89.99,
+    rating=2.71,
+    stock=27,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Microwave%20Oven/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_65.save()
+
+a_66 = Auction(
+    title='Mug Tree Stand',
+    description='The Mug Tree Stand is a stylish and space-saving solution for organizing your mugs. Keep your favorite mugs easily accessible and neatly displayed in your kitchen.',
+    price=15.99,
+    rating=4.34,
+    stock=93,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Mug%20Tree%20Stand/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_66.save()
+
+a_67 = Auction(
+    title='Pan',
+    description='The Pan is a versatile and essential cookware item for frying, sautéing, and cooking various dishes. Its non-stick coating ensures easy food release and cleanup.',
+    price=24.99,
+    rating=3.4,
+    stock=40,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Pan/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_67.save()
+
+a_68 = Auction(
+    title='Plate',
+    description='The Plate is a classic and essential dishware item for serving meals. Its durable and stylish design makes it suitable for everyday use or special occasions.',
+    price=3.99,
+    rating=3.07,
+    stock=30,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Plate/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_68.save()
+
+a_69 = Auction(
+    title='Red Tongs',
+    description='The Red Tongs are versatile kitchen tongs suitable for various cooking and serving tasks. Their vibrant color adds a pop of excitement to your kitchen utensils.',
+    price=6.99,
+    rating=3.22,
+    stock=15,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Red%20Tongs/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_69.save()
+
+a_70 = Auction(
+    title='Silver Pot With Glass Cap',
+    description='The Silver Pot with Glass Cap is a stylish and functional cookware item for boiling, simmering, and preparing delicious meals. Its glass cap allows you to monitor cooking progress.',
+    price=39.99,
+    rating=3.86,
+    stock=37,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Silver%20Pot%20With%20Glass%20Cap/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_70.save()
+
+a_71 = Auction(
+    title='Slotted Turner',
+    description='The Slotted Turner is a kitchen utensil designed for flipping and turning food items. Its slotted design allows excess liquid to drain, making it ideal for frying and sautéing.',
+    price=8.99,
+    rating=3.77,
+    stock=36,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Slotted%20Turner/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_71.save()
+
+a_72 = Auction(
+    title='Spice Rack',
+    description='The Spice Rack is a convenient organizer for your spices and seasonings. Keep your kitchen essentials within reach and neatly arranged with this stylish spice rack.',
+    price=19.99,
+    rating=4.05,
+    stock=24,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Spice%20Rack/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_72.save()
+
+a_73 = Auction(
+    title='Spoon',
+    description='The Spoon is a versatile kitchen utensil for stirring, serving, and tasting. Its ergonomic design and durable construction make it an essential tool for every kitchen.',
+    price=4.99,
+    rating=3.98,
+    stock=51,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Spoon/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_73.save()
+
+a_74 = Auction(
+    title='Tray',
+    description='The Tray is a functional and decorative item for serving snacks, appetizers, or drinks. Its stylish design makes it a versatile accessory for entertaining guests.',
+    price=16.99,
+    rating=3.2,
+    stock=48,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Tray/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_74.save()
+
+a_75 = Auction(
+    title='Wooden Rolling Pin',
+    description='The Wooden Rolling Pin is a classic kitchen tool for rolling out dough for baking. Its smooth surface and sturdy handles make it easy to achieve uniform thickness.',
+    price=11.99,
+    rating=4.99,
+    stock=80,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Wooden%20Rolling%20Pin/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_75.save()
+
+a_76 = Auction(
+    title='Yellow Peeler',
+    description='The Yellow Peeler is a handy tool for peeling fruits and vegetables with ease. Its bright yellow color adds a cheerful touch to your kitchen gadgets.',
+    price=5.99,
+    rating=4.41,
+    stock=86,
+    brand='Unknown',
+    category=cat_5,
+    thumbnail='https://cdn.dummyjson.com/products/images/kitchen-accessories/Yellow%20Peeler/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_76.save()
+
+a_77 = Auction(
+    title='Apple MacBook Pro 14 Inch Space Grey',
+    description='The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple\'s M1 Pro chip for exceptional performance and a stunning Retina display.',
+    price=1999.99,
+    rating=3.13,
+    stock=39,
+    brand='Apple',
+    category=cat_6,
+    thumbnail='https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_77.save()
+
+a_78 = Auction(
+    title='Asus Zenbook Pro Dual Screen Laptop',
+    description='The Asus Zenbook Pro Dual Screen Laptop is a high-performance device with dual screens, providing productivity and versatility for creative professionals.',
+    price=1799.99,
+    rating=3.14,
+    stock=38,
+    brand='Asus',
+    category=cat_6,
+    thumbnail='https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_78.save()
+
+a_79 = Auction(
+    title='Huawei Matebook X Pro',
+    description='The Huawei Matebook X Pro is a slim and stylish laptop with a high-resolution touchscreen display, offering a premium experience for users on the go.',
+    price=1399.99,
+    rating=4.62,
+    stock=34,
+    brand='Huawei',
+    category=cat_6,
+    thumbnail='https://cdn.dummyjson.com/products/images/laptops/Huawei%20Matebook%20X%20Pro/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_79.save()
+
+a_80 = Auction(
+    title='Lenovo Yoga 920',
+    description='The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.',
+    price=1099.99,
+    rating=2.98,
+    stock=71,
+    brand='Lenovo',
+    category=cat_6,
+    thumbnail='https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_80.save()
+
+a_81 = Auction(
+    title='New DELL XPS 13 9300 Laptop',
+    description='The New DELL XPS 13 9300 Laptop is a compact and powerful device, featuring a virtually borderless InfinityEdge display and high-end performance for various tasks.',
+    price=1499.99,
+    rating=2.98,
+    stock=18,
+    brand='Dell',
+    category=cat_6,
+    thumbnail='https://cdn.dummyjson.com/products/images/laptops/New%20DELL%20XPS%2013%209300%20Laptop/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_81.save()
+
+a_82 = Auction(
+    title='Blue & Black Check Shirt',
+    description='The Blue & Black Check Shirt is a stylish and comfortable men\'s shirt featuring a classic check pattern. Made from high-quality fabric, it\'s suitable for both casual and semi-formal occasions.',
+    price=29.99,
+    rating=4.19,
+    stock=44,
+    brand='Fashion Trends',
+    category=cat_7,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-shirts/Blue%20&%20Black%20Check%20Shirt/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_82.save()
+
+a_83 = Auction(
+    title='Gigabyte Aorus Men Tshirt',
+    description='The Gigabyte Aorus Men Tshirt is a cool and casual shirt for gaming enthusiasts. With the Aorus logo and sleek design, it\'s perfect for expressing your gaming style.',
+    price=24.99,
+    rating=4.95,
+    stock=64,
+    brand='Gigabyte',
+    category=cat_7,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-shirts/Gigabyte%20Aorus%20Men%20Tshirt/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_83.save()
+
+a_84 = Auction(
+    title='Man Plaid Shirt',
+    description='The Man Plaid Shirt is a timeless and versatile men\'s shirt with a classic plaid pattern. Its comfortable fit and casual style make it a wardrobe essential for various occasions.',
+    price=34.99,
+    rating=3.66,
+    stock=65,
+    brand='Classic Wear',
+    category=cat_7,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-shirts/Man%20Plaid%20Shirt/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_84.save()
+
+a_85 = Auction(
+    title='Man Short Sleeve Shirt',
+    description='The Man Short Sleeve Shirt is a breezy and stylish option for warm days. With a comfortable fit and short sleeves, it\'s perfect for a laid-back yet polished look.',
+    price=19.99,
+    rating=4.62,
+    stock=20,
+    brand='Casual Comfort',
+    category=cat_7,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-shirts/Man%20Short%20Sleeve%20Shirt/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_85.save()
+
+a_86 = Auction(
+    title='Men Check Shirt',
+    description='The Men Check Shirt is a classic and versatile shirt featuring a stylish check pattern. Suitable for various occasions, it adds a smart and polished touch to your wardrobe.',
+    price=27.99,
+    rating=2.9,
+    stock=69,
+    brand='Urban Chic',
+    category=cat_7,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-shirts/Men%20Check%20Shirt/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_86.save()
+
+a_87 = Auction(
+    title='Nike Air Jordan 1 Red And Black',
+    description='The Nike Air Jordan 1 in Red and Black is an iconic basketball sneaker known for its stylish design and high-performance features, making it a favorite among sneaker enthusiasts and athletes.',
+    price=149.99,
+    rating=2.77,
+    stock=15,
+    brand='Nike',
+    category=cat_8,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Jordan%201%20Red%20And%20Black/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_87.save()
+
+a_88 = Auction(
+    title='Nike Baseball Cleats',
+    description='Nike Baseball Cleats are designed for maximum traction and performance on the baseball field. They provide stability and support for players during games and practices.',
+    price=79.99,
+    rating=4.01,
+    stock=14,
+    brand='Nike',
+    category=cat_8,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_88.save()
+
+a_89 = Auction(
+    title='Puma Future Rider Trainers',
+    description='The Puma Future Rider Trainers offer a blend of retro style and modern comfort. Perfect for casual wear, these trainers provide a fashionable and comfortable option for everyday use.',
+    price=89.99,
+    rating=4.85,
+    stock=10,
+    brand='Puma',
+    category=cat_8,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-shoes/Puma%20Future%20Rider%20Trainers/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_89.save()
+
+a_90 = Auction(
+    title='Sports Sneakers Off White & Red',
+    description='The Sports Sneakers in Off White and Red combine style and functionality, making them a fashionable choice for sports enthusiasts. The red and off-white color combination adds a bold and energetic touch.',
+    price=119.99,
+    rating=4.92,
+    stock=73,
+    brand='Off White',
+    category=cat_8,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20&%20Red/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_90.save()
+
+a_91 = Auction(
+    title='Sports Sneakers Off White Red',
+    description='Another variant of the Sports Sneakers in Off White Red, featuring a unique design. These sneakers offer style and comfort for casual occasions.',
+    price=109.99,
+    rating=2.95,
+    stock=75,
+    brand='Off White',
+    category=cat_8,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20Red/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_91.save()
+
+a_92 = Auction(
+    title='Brown Leather Belt Watch',
+    description='The Brown Leather Belt Watch is a stylish timepiece with a classic design. Featuring a genuine leather strap and a sleek dial, it adds a touch of sophistication to your look.',
+    price=89.99,
+    rating=4.47,
+    stock=69,
+    brand='Fashion Timepieces',
+    category=cat_9,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-watches/Brown%20Leather%20Belt%20Watch/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_92.save()
+
+a_93 = Auction(
+    title='Longines Master Collection',
+    description='The Longines Master Collection is an elegant and refined watch known for its precision and craftsmanship. With a timeless design, it\'s a symbol of luxury and sophistication.',
+    price=1499.99,
+    rating=2.64,
+    stock=65,
+    brand='Longines',
+    category=cat_9,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-watches/Longines%20Master%20Collection/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_93.save()
+
+a_94 = Auction(
+    title='Rolex Cellini Date Black Dial',
+    description='The Rolex Cellini Date with Black Dial is a classic and prestigious watch. With a black dial and date complication, it exudes sophistication and is a symbol of Rolex\'s heritage.',
+    price=8999.99,
+    rating=3.61,
+    stock=84,
+    brand='Rolex',
+    category=cat_9,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Date%20Black%20Dial/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_94.save()
+
+a_95 = Auction(
+    title='Rolex Cellini Moonphase',
+    description='The Rolex Cellini Moonphase is a masterpiece of horology, featuring a moon phase complication and exquisite design. It reflects Rolex\'s commitment to precision and elegance.',
+    price=12999.99,
+    rating=4.52,
+    stock=33,
+    brand='Rolex',
+    category=cat_9,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Moonphase/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_95.save()
+
+a_96 = Auction(
+    title='Rolex Datejust',
+    description='The Rolex Datejust is an iconic and versatile timepiece with a date window. Known for its timeless design and reliability, it\'s a symbol of Rolex\'s watchmaking excellence.',
+    price=10999.99,
+    rating=4.94,
+    stock=11,
+    brand='Rolex',
+    category=cat_9,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Datejust/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_96.save()
+
+a_97 = Auction(
+    title='Rolex Submariner Watch',
+    description='The Rolex Submariner is a legendary dive watch with a rich history. Known for its durability and water resistance, it\'s a symbol of adventure and exploration.',
+    price=13999.99,
+    rating=2.97,
+    stock=35,
+    brand='Rolex',
+    category=cat_9,
+    thumbnail='https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Submariner%20Watch/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_97.save()
+
+a_98 = Auction(
+    title='Amazon Echo Plus',
+    description='The Amazon Echo Plus is a smart speaker with built-in Alexa voice control. It features premium sound quality and serves as a hub for controlling smart home devices.',
+    price=99.99,
+    rating=3.52,
+    stock=50,
+    brand='Amazon',
+    category=cat_10,
+    thumbnail='https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_98.save()
+
+a_99 = Auction(
+    title='Apple Airpods',
+    description='The Apple Airpods offer a seamless wireless audio experience. With easy pairing, high-quality sound, and Siri integration, they are perfect for on-the-go listening.',
+    price=129.99,
+    rating=4.38,
+    stock=93,
+    brand='Apple',
+    category=cat_10,
+    thumbnail='https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png',
+    closing_date=timezone.now() + timedelta(days=5)
+)
+a_99.save()
+
+# ---- PUJAS ----
+Bid(auction=a_0, price=a_0.price + 2, bidder='usuario1').save()
+Bid(auction=a_0, price=a_0.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_1, price=a_1.price + 2, bidder='usuario1').save()
+Bid(auction=a_1, price=a_1.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_2, price=a_2.price + 2, bidder='usuario1').save()
+Bid(auction=a_2, price=a_2.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_3, price=a_3.price + 2, bidder='usuario1').save()
+Bid(auction=a_3, price=a_3.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_4, price=a_4.price + 2, bidder='usuario1').save()
+Bid(auction=a_4, price=a_4.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_5, price=a_5.price + 2, bidder='usuario1').save()
+Bid(auction=a_5, price=a_5.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_6, price=a_6.price + 2, bidder='usuario1').save()
+Bid(auction=a_6, price=a_6.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_7, price=a_7.price + 2, bidder='usuario1').save()
+Bid(auction=a_7, price=a_7.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_8, price=a_8.price + 2, bidder='usuario1').save()
+Bid(auction=a_8, price=a_8.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_9, price=a_9.price + 2, bidder='usuario1').save()
+Bid(auction=a_9, price=a_9.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_10, price=a_10.price + 2, bidder='usuario1').save()
+Bid(auction=a_10, price=a_10.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_11, price=a_11.price + 2, bidder='usuario1').save()
+Bid(auction=a_11, price=a_11.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_12, price=a_12.price + 2, bidder='usuario1').save()
+Bid(auction=a_12, price=a_12.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_13, price=a_13.price + 2, bidder='usuario1').save()
+Bid(auction=a_13, price=a_13.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_14, price=a_14.price + 2, bidder='usuario1').save()
+Bid(auction=a_14, price=a_14.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_15, price=a_15.price + 2, bidder='usuario1').save()
+Bid(auction=a_15, price=a_15.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_16, price=a_16.price + 2, bidder='usuario1').save()
+Bid(auction=a_16, price=a_16.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_17, price=a_17.price + 2, bidder='usuario1').save()
+Bid(auction=a_17, price=a_17.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_18, price=a_18.price + 2, bidder='usuario1').save()
+Bid(auction=a_18, price=a_18.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_19, price=a_19.price + 2, bidder='usuario1').save()
+Bid(auction=a_19, price=a_19.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_20, price=a_20.price + 2, bidder='usuario1').save()
+Bid(auction=a_20, price=a_20.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_21, price=a_21.price + 2, bidder='usuario1').save()
+Bid(auction=a_21, price=a_21.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_22, price=a_22.price + 2, bidder='usuario1').save()
+Bid(auction=a_22, price=a_22.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_23, price=a_23.price + 2, bidder='usuario1').save()
+Bid(auction=a_23, price=a_23.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_24, price=a_24.price + 2, bidder='usuario1').save()
+Bid(auction=a_24, price=a_24.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_25, price=a_25.price + 2, bidder='usuario1').save()
+Bid(auction=a_25, price=a_25.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_26, price=a_26.price + 2, bidder='usuario1').save()
+Bid(auction=a_26, price=a_26.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_27, price=a_27.price + 2, bidder='usuario1').save()
+Bid(auction=a_27, price=a_27.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_28, price=a_28.price + 2, bidder='usuario1').save()
+Bid(auction=a_28, price=a_28.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_29, price=a_29.price + 2, bidder='usuario1').save()
+Bid(auction=a_29, price=a_29.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_30, price=a_30.price + 2, bidder='usuario1').save()
+Bid(auction=a_30, price=a_30.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_31, price=a_31.price + 2, bidder='usuario1').save()
+Bid(auction=a_31, price=a_31.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_32, price=a_32.price + 2, bidder='usuario1').save()
+Bid(auction=a_32, price=a_32.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_33, price=a_33.price + 2, bidder='usuario1').save()
+Bid(auction=a_33, price=a_33.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_34, price=a_34.price + 2, bidder='usuario1').save()
+Bid(auction=a_34, price=a_34.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_35, price=a_35.price + 2, bidder='usuario1').save()
+Bid(auction=a_35, price=a_35.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_36, price=a_36.price + 2, bidder='usuario1').save()
+Bid(auction=a_36, price=a_36.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_37, price=a_37.price + 2, bidder='usuario1').save()
+Bid(auction=a_37, price=a_37.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_38, price=a_38.price + 2, bidder='usuario1').save()
+Bid(auction=a_38, price=a_38.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_39, price=a_39.price + 2, bidder='usuario1').save()
+Bid(auction=a_39, price=a_39.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_40, price=a_40.price + 2, bidder='usuario1').save()
+Bid(auction=a_40, price=a_40.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_41, price=a_41.price + 2, bidder='usuario1').save()
+Bid(auction=a_41, price=a_41.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_42, price=a_42.price + 2, bidder='usuario1').save()
+Bid(auction=a_42, price=a_42.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_43, price=a_43.price + 2, bidder='usuario1').save()
+Bid(auction=a_43, price=a_43.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_44, price=a_44.price + 2, bidder='usuario1').save()
+Bid(auction=a_44, price=a_44.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_45, price=a_45.price + 2, bidder='usuario1').save()
+Bid(auction=a_45, price=a_45.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_46, price=a_46.price + 2, bidder='usuario1').save()
+Bid(auction=a_46, price=a_46.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_47, price=a_47.price + 2, bidder='usuario1').save()
+Bid(auction=a_47, price=a_47.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_48, price=a_48.price + 2, bidder='usuario1').save()
+Bid(auction=a_48, price=a_48.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_49, price=a_49.price + 2, bidder='usuario1').save()
+Bid(auction=a_49, price=a_49.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_50, price=a_50.price + 2, bidder='usuario1').save()
+Bid(auction=a_50, price=a_50.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_51, price=a_51.price + 2, bidder='usuario1').save()
+Bid(auction=a_51, price=a_51.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_52, price=a_52.price + 2, bidder='usuario1').save()
+Bid(auction=a_52, price=a_52.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_53, price=a_53.price + 2, bidder='usuario1').save()
+Bid(auction=a_53, price=a_53.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_54, price=a_54.price + 2, bidder='usuario1').save()
+Bid(auction=a_54, price=a_54.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_55, price=a_55.price + 2, bidder='usuario1').save()
+Bid(auction=a_55, price=a_55.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_56, price=a_56.price + 2, bidder='usuario1').save()
+Bid(auction=a_56, price=a_56.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_57, price=a_57.price + 2, bidder='usuario1').save()
+Bid(auction=a_57, price=a_57.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_58, price=a_58.price + 2, bidder='usuario1').save()
+Bid(auction=a_58, price=a_58.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_59, price=a_59.price + 2, bidder='usuario1').save()
+Bid(auction=a_59, price=a_59.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_60, price=a_60.price + 2, bidder='usuario1').save()
+Bid(auction=a_60, price=a_60.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_61, price=a_61.price + 2, bidder='usuario1').save()
+Bid(auction=a_61, price=a_61.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_62, price=a_62.price + 2, bidder='usuario1').save()
+Bid(auction=a_62, price=a_62.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_63, price=a_63.price + 2, bidder='usuario1').save()
+Bid(auction=a_63, price=a_63.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_64, price=a_64.price + 2, bidder='usuario1').save()
+Bid(auction=a_64, price=a_64.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_65, price=a_65.price + 2, bidder='usuario1').save()
+Bid(auction=a_65, price=a_65.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_66, price=a_66.price + 2, bidder='usuario1').save()
+Bid(auction=a_66, price=a_66.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_67, price=a_67.price + 2, bidder='usuario1').save()
+Bid(auction=a_67, price=a_67.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_68, price=a_68.price + 2, bidder='usuario1').save()
+Bid(auction=a_68, price=a_68.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_69, price=a_69.price + 2, bidder='usuario1').save()
+Bid(auction=a_69, price=a_69.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_70, price=a_70.price + 2, bidder='usuario1').save()
+Bid(auction=a_70, price=a_70.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_71, price=a_71.price + 2, bidder='usuario1').save()
+Bid(auction=a_71, price=a_71.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_72, price=a_72.price + 2, bidder='usuario1').save()
+Bid(auction=a_72, price=a_72.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_73, price=a_73.price + 2, bidder='usuario1').save()
+Bid(auction=a_73, price=a_73.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_74, price=a_74.price + 2, bidder='usuario1').save()
+Bid(auction=a_74, price=a_74.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_75, price=a_75.price + 2, bidder='usuario1').save()
+Bid(auction=a_75, price=a_75.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_76, price=a_76.price + 2, bidder='usuario1').save()
+Bid(auction=a_76, price=a_76.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_77, price=a_77.price + 2, bidder='usuario1').save()
+Bid(auction=a_77, price=a_77.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_78, price=a_78.price + 2, bidder='usuario1').save()
+Bid(auction=a_78, price=a_78.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_79, price=a_79.price + 2, bidder='usuario1').save()
+Bid(auction=a_79, price=a_79.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_80, price=a_80.price + 2, bidder='usuario1').save()
+Bid(auction=a_80, price=a_80.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_81, price=a_81.price + 2, bidder='usuario1').save()
+Bid(auction=a_81, price=a_81.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_82, price=a_82.price + 2, bidder='usuario1').save()
+Bid(auction=a_82, price=a_82.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_83, price=a_83.price + 2, bidder='usuario1').save()
+Bid(auction=a_83, price=a_83.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_84, price=a_84.price + 2, bidder='usuario1').save()
+Bid(auction=a_84, price=a_84.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_85, price=a_85.price + 2, bidder='usuario1').save()
+Bid(auction=a_85, price=a_85.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_86, price=a_86.price + 2, bidder='usuario1').save()
+Bid(auction=a_86, price=a_86.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_87, price=a_87.price + 2, bidder='usuario1').save()
+Bid(auction=a_87, price=a_87.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_88, price=a_88.price + 2, bidder='usuario1').save()
+Bid(auction=a_88, price=a_88.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_89, price=a_89.price + 2, bidder='usuario1').save()
+Bid(auction=a_89, price=a_89.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_90, price=a_90.price + 2, bidder='usuario1').save()
+Bid(auction=a_90, price=a_90.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_91, price=a_91.price + 2, bidder='usuario1').save()
+Bid(auction=a_91, price=a_91.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_92, price=a_92.price + 2, bidder='usuario1').save()
+Bid(auction=a_92, price=a_92.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_93, price=a_93.price + 2, bidder='usuario1').save()
+Bid(auction=a_93, price=a_93.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_94, price=a_94.price + 2, bidder='usuario1').save()
+Bid(auction=a_94, price=a_94.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_95, price=a_95.price + 2, bidder='usuario1').save()
+Bid(auction=a_95, price=a_95.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_96, price=a_96.price + 2, bidder='usuario1').save()
+Bid(auction=a_96, price=a_96.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_97, price=a_97.price + 2, bidder='usuario1').save()
+Bid(auction=a_97, price=a_97.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_98, price=a_98.price + 2, bidder='usuario1').save()
+Bid(auction=a_98, price=a_98.price + 5, bidder='usuario2').save()
+
+Bid(auction=a_99, price=a_99.price + 2, bidder='usuario1').save()
+Bid(auction=a_99, price=a_99.price + 5, bidder='usuario2').save()
