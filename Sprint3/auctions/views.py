@@ -21,7 +21,11 @@ class AuctionListCreate(generics.ListCreateAPIView):
     def get_queryset(self):
         queryset = Auction.objects.all()
 
-        texto = self.request.query_params.get('texto')
+        texto = self.request.query_params.get('texto',None)
+        precio_min = self.request.query_params.get('precioMin', None)
+        precio_max = self.request.query_params.get('precioMax', None)
+        is_open = self.request.query_params.get('isOpen', None)
+
         if texto:
             queryset = queryset.filter(Q(title__icontains=texto) | Q(description__icontains=texto))
 
@@ -29,15 +33,11 @@ class AuctionListCreate(generics.ListCreateAPIView):
         if categoria:
             queryset = queryset.filter(category__name__icontains=categoria)  # o `category__id=int(categoria)`
 
-        precio_min = self.request.query_params.get('precioMin')
-        precio_max = self.request.query_params.get('precioMax')
-
         if precio_min:
             queryset = queryset.filter(price__gte=precio_min)
         if precio_max:
             queryset = queryset.filter(price__lte=precio_max)
 
-        is_open = self.request.query_params.get('isOpen')
         if is_open is not None:
             if is_open.lower() == 'true':
                 queryset = queryset.filter(closing_date__gt=timezone.now())
