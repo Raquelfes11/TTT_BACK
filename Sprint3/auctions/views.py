@@ -4,6 +4,7 @@ from .serializers import AuctionDetailSerializer, AuctionListCreateSerializer, C
 from django.db.models import Q
 from django.utils import timezone
 from rest_framework import serializers
+from rest_framework.exceptions import NotFound
 
 # Create your views here.
 class CategoryListCreate(generics.ListCreateAPIView):
@@ -47,8 +48,16 @@ class AuctionListCreate(generics.ListCreateAPIView):
         return queryset
 
 class AuctionRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Auction.objects.all()
     serializer_class = AuctionDetailSerializer
+
+    def get_queryset(self):
+        return Auction.objects.all()
+
+    def get_object(self):
+        try:
+            return super().get_object()
+        except Auction.DoesNotExist:
+            raise NotFound("La subasta no fue encontrada.")
 
 class BidListCreate(generics.ListCreateAPIView):
     serializer_class = BidListCreateSerializer
