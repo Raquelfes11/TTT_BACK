@@ -1,9 +1,8 @@
-from rest_framework import generics
+from rest_framework import generics, serializers
 from .models import Category, Auction, Bid
 from .serializers import AuctionDetailSerializer, AuctionListCreateSerializer, CategoryDetailSerializer, CategoryListCreateSerializer, BidDetailSerializer, BidListCreateSerializer
 from django.db.models import Q
 from django.utils import timezone
-from rest_framework import serializers
 from rest_framework.exceptions import NotFound
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
