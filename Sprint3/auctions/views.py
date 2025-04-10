@@ -7,18 +7,21 @@ from rest_framework.exceptions import NotFound
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from .permissions import IsOwnerOrAdmin
+from .permissions import IsOwnerOrAdmin, IsAuthenticatedOrReadOnly, IsAdminOrReadOnly
 
 # Create your views here.
 class CategoryListCreate(generics.ListCreateAPIView):
+    permission_classes = [IsAdminOrReadOnly]
     queryset = Category.objects.all()
     serializer_class = CategoryListCreateSerializer
 
 class CategoryRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAdminOrReadOnly]
     queryset = Category.objects.all()
     serializer_class = CategoryDetailSerializer
 
 class AuctionListCreate(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = AuctionListCreateSerializer
 
     def get_queryset(self):
@@ -64,6 +67,7 @@ class AuctionRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
             raise NotFound("La subasta no fue encontrada.")
 
 class BidListCreate(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = BidListCreateSerializer
 
     def get_queryset(self):
@@ -81,6 +85,7 @@ class BidListCreate(generics.ListCreateAPIView):
 
 
 class BidRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsOwnerOrAdmin]
     serializer_class = BidDetailSerializer
     lookup_url_kwarg = "bid_id"
 
