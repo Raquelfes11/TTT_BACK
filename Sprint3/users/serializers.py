@@ -50,6 +50,13 @@ class UserSerializer(serializers.ModelSerializer):
         if CustomUser.objects.filter(email=value).exclude(pk=user.pk if user else None).exists():
             raise serializers.ValidationError("Email already in use.")
         return value
+    
+    def validate_username(self, value):
+        user = self.instance  # Solo tiene valor cuando se está actualizando
+        if CustomUser.objects.filter(username=value).exclude(pk=user.pk if user else None).exists():
+            raise serializers.ValidationError("Username already in use.")
+        return value
+
 
     def create(self, validated_data):
         return CustomUser.objects.create_user(**validated_data)
