@@ -36,7 +36,7 @@ class Bid(models.Model):
     auction = models.ForeignKey(Auction, related_name="bids", on_delete=models.CASCADE)
     price = models.IntegerField(validators=[MinValueValidator(1)])
     creation_date = models.DateTimeField(auto_now_add=True)
-    models.ForeignKey(CustomUser, related_name="bids", on_delete=models.CASCADE)
+    bidder = models.ForeignKey(CustomUser, related_name="bids", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ("id",)
