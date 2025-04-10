@@ -7,6 +7,7 @@ from rest_framework.exceptions import NotFound
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from django.db import models
 from .permissions import IsOwnerOrAdmin, IsAuthenticatedOrReadOnly, IsAdminOrReadOnly
 
 # Create your views here.
@@ -73,7 +74,7 @@ class BidListCreate(generics.ListCreateAPIView):
     def get_queryset(self):
         auction_id = self.kwargs["auction_id"]
         return Bid.objects.filter(auction_id=auction_id)
-
+    
     def perform_create(self, serializer):
         auction_id = self.kwargs["auction_id"]
         auction = Auction.objects.get(pk=auction_id)
@@ -81,7 +82,13 @@ class BidListCreate(generics.ListCreateAPIView):
         if auction.closing_date <= timezone.now():
             raise serializers.ValidationError("La subasta ya está cerrada. No se pueden hacer más pujas.")
 
-        serializer.save(auction=auction)
+        max_bid = auction.bids.aggregate(models.Max('price'))['price__max'] or 0
+        new_price = serializer.validated_data['price']
+
+        if new_price <= max_bid:
+            raise serializers.ValidationError("La puja debe ser mayor que cualquier puja existente.")
+
+        serializer.save(auction=auction, bidder=self.request.user)
 
 
 class BidRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
