@@ -108,3 +108,11 @@ class UserAuctionListView(APIView):
         user_auctions = Auction.objects.filter(auctioneer=request.user)
         serializer = AuctionListCreateSerializer(user_auctions, many=True)
         return Response(serializer.data)
+
+class UserBidListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        user_bids = Bid.objects.filter(bidder=request.user)
+        serializer = BidListCreateSerializer(user_bids, many=True)
+        return Response(serializer.data)
