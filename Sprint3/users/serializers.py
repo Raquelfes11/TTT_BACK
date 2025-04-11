@@ -28,7 +28,13 @@ class ChangePasswordSerializer(serializers.Serializer):
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
-        data['username'] = self.user.username
+        if not self.user:
+            raise serializers.ValidationError("Invalid user")
+
+        data['user'] = {
+            'id': self.user.id,
+            'username': self.user.username,
+        }
         return data
 
 class UserSerializer(serializers.ModelSerializer):
