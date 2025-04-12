@@ -111,7 +111,17 @@ class UserAuctionListView(APIView):
         user_auctions = Auction.objects.filter(auctioneer=request.user)
         serializer = AuctionListCreateSerializer(user_auctions, many=True)
         return Response(serializer.data)
+    
+    def delete(self, request, *args, **kwargs):
+        # Buscar las subastas del usuario
+        user_auctions = Auction.objects.filter(auctioneer=request.user)
+        deleted_count = user_auctions.count()
 
+        # Eliminar todas las subastas
+        user_auctions.delete()
+
+        return Response({"detail": f"Se eliminaron {deleted_count} subastas."}, status=204)
+    
 class UserBidListView(APIView):
     permission_classes = [IsAuthenticated]
 
