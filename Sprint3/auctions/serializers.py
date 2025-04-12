@@ -40,12 +40,19 @@ class AuctionListCreateSerializer(serializers.ModelSerializer):
 
         return data
 
-        
+class AuctionBidSerializer(serializers.ModelSerializer):
+    bidder_username = serializers.CharField(source='bidder.username', read_only=True)
+
+    class Meta:
+        model = Bid
+        fields = ['id', 'price', 'creation_date', 'bidder_username']
+       
 class AuctionDetailSerializer(serializers.ModelSerializer):
     creation_date = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%SZ", read_only=True)
     closing_date = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%SZ")
     isOpen = serializers.SerializerMethodField(read_only=True)
     auctioneer = serializers.CharField(source='auctioneer.username', read_only=True)
+    bids = AuctionBidSerializer(many=True, read_only=True)
 
     class Meta:
         model = Auction
