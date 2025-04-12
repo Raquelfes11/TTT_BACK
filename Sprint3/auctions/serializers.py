@@ -67,6 +67,7 @@ class BidListCreateSerializer(serializers.ModelSerializer):
     bidder_username = serializers.CharField(source='bidder.username', read_only=True)
     auction_title = serializers.CharField(source='auction.title', read_only=True)
     auction_thumbnail = serializers.URLField(source='auction.thumbnail', read_only=True)
+    auction_id = serializers.IntegerField(source='auction.id', read_only=True)
 
     class Meta:
         model = Bid

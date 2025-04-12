@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.db import models
-from .permissions import IsOwnerOrAdmin, IsAuthenticatedOrReadOnly, IsAdminOrReadOnly
+from .permissions import IsOwnerOrAdmin, IsAuthenticatedOrReadOnly, IsAdminOrReadOnly, IsBidderOrAdmin
 
 # Create your views here.
 class CategoryListCreate(generics.ListCreateAPIView):
@@ -95,7 +95,7 @@ class BidListCreate(generics.ListCreateAPIView):
 
 
 class BidRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsOwnerOrAdmin]
+    permission_classes = [IsBidderOrAdmin]
     serializer_class = BidDetailSerializer
     lookup_url_kwarg = "bid_id"
 
