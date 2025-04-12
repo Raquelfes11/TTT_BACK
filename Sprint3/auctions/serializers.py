@@ -18,6 +18,7 @@ class AuctionListCreateSerializer(serializers.ModelSerializer):
     creation_date = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%SZ", read_only=True)
     closing_date = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%SZ")
     isOpen = serializers.SerializerMethodField(read_only=True)
+    auctioneer = serializers.CharField(source='auctioneer.username', read_only=True)
 
     class Meta:
         model = Auction
@@ -44,6 +45,7 @@ class AuctionDetailSerializer(serializers.ModelSerializer):
     creation_date = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%SZ", read_only=True)
     closing_date = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%SZ")
     isOpen = serializers.SerializerMethodField(read_only=True)
+    auctioneer = serializers.CharField(source='auctioneer.username', read_only=True)
 
     class Meta:
         model = Auction
@@ -55,6 +57,7 @@ class AuctionDetailSerializer(serializers.ModelSerializer):
 
 class BidListCreateSerializer(serializers.ModelSerializer):
     creation_date = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%SZ", read_only=True)
+    bidder_username = serializers.CharField(source='bidder.username', read_only=True)
 
     class Meta:
         model = Bid
@@ -63,6 +66,7 @@ class BidListCreateSerializer(serializers.ModelSerializer):
 
 class BidDetailSerializer(serializers.ModelSerializer):
     creation_date = serializers.DateTimeField(format="%Y-%m-%dT%H:%M:%SZ", read_only=True)
+    bidder_username = serializers.CharField(source='bidder.username', read_only=True)
 
     class Meta:
         model = Bid
