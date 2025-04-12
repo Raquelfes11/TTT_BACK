@@ -74,7 +74,7 @@ class BidListCreate(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = BidListCreateSerializer
 
-    def get_queryset(self):
+    def get_queryset(self): 
         auction_id = self.kwargs["auction_id"]
         return Bid.objects.filter(auction_id=auction_id).order_by('-price')
     
