@@ -325,6 +325,7 @@ pyobjc-framework-Virtualization==10.1
 pyobjc-framework-Vision==10.1
 pyobjc-framework-WebKit==10.1
 Pyomo==6.8.0
+python==3.9.12
 pyOpenSSL==24.1.0
 pyparsing==3.2.1
 pyproject_hooks==1.0.0
