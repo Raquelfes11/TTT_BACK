@@ -23,7 +23,6 @@ catalogue==2.0.10
 certifi==2021.10.8
 click==8.1.7
 cloudpathlib==0.20.0
-clyent==1.2.2
 colored==2.2.3
 colorful==0.5.6
 colorzero==2.0
