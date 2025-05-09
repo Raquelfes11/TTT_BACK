@@ -1,6 +1,6 @@
 from rest_framework import generics, serializers
-from .models import Category, Auction, Bid, Rating
-from .serializers import AuctionDetailSerializer, AuctionListCreateSerializer, CategoryDetailSerializer, CategoryListCreateSerializer, RatingSerializer, BidDetailSerializer, BidListCreateSerializer
+from .models import Category, Auction, Bid, Rating, Comment
+from .serializers import AuctionDetailSerializer,CommentSerializer ,AuctionListCreateSerializer, CategoryDetailSerializer, CategoryListCreateSerializer, RatingSerializer, BidDetailSerializer, BidListCreateSerializer
 from django.db.models import Q
 from django.utils import timezone
 from rest_framework.exceptions import NotFound
@@ -9,6 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.db import models
 from django.shortcuts import get_object_or_404
+from django.core.exceptions import PermissionDenied
 from .permissions import IsOwnerOrAdmin, IsAuthenticatedOrReadOnly, IsAdminOrReadOnly, IsBidderOrAdmin
 
 # Create your views here.
@@ -147,12 +148,46 @@ class RatingCreateUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
 
     def get_object(self):
         auction_id = self.kwargs["auction_id"]
-        return get_object_or_404(
-            Rating,
-            auction_id=auction_id,
-            user=self.request.user
-        )
+        rating = get_object_or_404(Rating, auction_id=auction_id, id=self.kwargs['pk'])
+        # Verifica si el usuario es el propietario de la valoración
+        if rating.user != self.request.user:
+            raise PermissionDenied("No tienes permiso para eliminar esta valoración.")
+        return rating
 
+    def perform_update(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def perform_destroy(self, instance):
+        instance.delete()
+
+class CommentListCreate(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    serializer_class = CommentSerializer
+
+    def get_queryset(self):
+        auction_id = self.kwargs["auction_id"]
+        return Comment.objects.filter(auction_id=auction_id).order_by('-created_at')
+
+    def perform_create(self, serializer):
+        auction_id = self.kwargs["auction_id"]
+        auction = Auction.objects.get(pk=auction_id)
+        serializer.save(user=self.request.user, auction=auction)
+
+class CommentRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = CommentSerializer
+    lookup_url_kwarg = "comment_id"
+
+    def get_queryset(self):
+        auction_id = self.kwargs["auction_id"]
+        return Comment.objects.filter(auction_id=auction_id)
+
+    def get_object(self):
+        try:
+            return super().get_object()
+        except Comment.DoesNotExist:
+            raise NotFound("El comentario no fue encontrado.")
+    
     def perform_update(self, serializer):
         serializer.save(user=self.request.user)
 

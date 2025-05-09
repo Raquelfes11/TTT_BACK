@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.utils import timezone
 from datetime import timedelta
-from .models import Category, Auction, Bid, Rating
+from .models import Category, Auction, Bid, Rating, Comment
 from drf_spectacular.utils import extend_schema_field
 
 class CategoryListCreateSerializer(serializers.ModelSerializer):
@@ -39,6 +39,16 @@ class AuctionListCreateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("La fecha de cierre debe ser al menos 15 días posterior a la fecha de creación.")
 
         return data
+    
+class CommentSerializer(serializers.ModelSerializer):
+    user = serializers.CharField(source='user.username', read_only=True)
+    auction_title = serializers.CharField(source='auction.title', read_only=True)
+
+    class Meta:
+        model = Comment
+        fields = ['id', 'title', 'text', 'created_at', 'updated_at', 'user', 'auction', 'auction_title']
+        read_only_fields = ['user', 'auction', 'created_at', 'updated_at']
+
 
 class AuctionBidSerializer(serializers.ModelSerializer):
     bidder_username = serializers.CharField(source='bidder.username', read_only=True)
@@ -54,6 +64,7 @@ class AuctionDetailSerializer(serializers.ModelSerializer):
     auctioneer = serializers.CharField(source='auctioneer.username', read_only=True)
     bids = AuctionBidSerializer(many=True, read_only=True)
     average_rating = serializers.SerializerMethodField()
+    comments = CommentSerializer(many=True, read_only=True)
 
     class Meta:
         model = Auction

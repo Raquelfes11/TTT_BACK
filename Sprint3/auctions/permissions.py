@@ -33,3 +33,8 @@ class IsAdminOrReadOnly(BasePermission):
 class IsBidderOrAdmin(BasePermission):
     def has_object_permission(self, request, view, obj):
         return obj.bidder == request.user or request.user.is_staff
+
+class IsCommentOwnerOrAdmin(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        # Permitir solo al usuario propietario o al administrador
+        return obj.user == request.user or request.user.is_staff
