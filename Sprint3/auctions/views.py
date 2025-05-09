@@ -1,6 +1,6 @@
 from rest_framework import generics, serializers
-from .models import Category, Auction, Bid
-from .serializers import AuctionDetailSerializer, AuctionListCreateSerializer, CategoryDetailSerializer, CategoryListCreateSerializer, BidDetailSerializer, BidListCreateSerializer
+from .models import Category, Auction, Bid, Rating
+from .serializers import AuctionDetailSerializer, AuctionListCreateSerializer, CategoryDetailSerializer, CategoryListCreateSerializer, RatingSerializer, BidDetailSerializer, BidListCreateSerializer
 from django.db.models import Q
 from django.utils import timezone
 from rest_framework.exceptions import NotFound
@@ -8,6 +8,7 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.db import models
+from django.shortcuts import get_object_or_404
 from .permissions import IsOwnerOrAdmin, IsAuthenticatedOrReadOnly, IsAdminOrReadOnly, IsBidderOrAdmin
 
 # Create your views here.
@@ -129,3 +130,31 @@ class UserBidListView(APIView):
         user_bids = Bid.objects.filter(bidder=request.user)
         serializer = BidListCreateSerializer(user_bids, many=True)
         return Response(serializer.data)
+
+class RatingCreateView(generics.CreateAPIView):
+    serializer_class = RatingSerializer
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        auction_id = self.kwargs["auction_id"]
+        if Rating.objects.filter(auction_id=auction_id, user=self.request.user).exists():
+            raise serializers.ValidationError("Ya has valorado esta subasta.")
+        serializer.save(user=self.request.user, auction_id=auction_id)
+
+class RatingCreateUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = RatingSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        auction_id = self.kwargs["auction_id"]
+        return get_object_or_404(
+            Rating,
+            auction_id=auction_id,
+            user=self.request.user
+        )
+
+    def perform_update(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def perform_destroy(self, instance):
+        instance.delete()
