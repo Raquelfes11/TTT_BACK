@@ -9,6 +9,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.db import models
 from django.shortcuts import get_object_or_404
+from django.db.models import Avg, Q, F, Value, FloatField
+from django.db.models.functions import Coalesce
 from django.core.exceptions import PermissionDenied
 from .permissions import IsOwnerOrAdmin, IsAuthenticatedOrReadOnly, IsAdminOrReadOnly, IsBidderOrAdmin
 
@@ -34,6 +36,7 @@ class AuctionListCreate(generics.ListCreateAPIView):
         precio_min = self.request.query_params.get('precioMin', None)
         precio_max = self.request.query_params.get('precioMax', None)
         is_open = self.request.query_params.get('isOpen', None)
+        valoracion_min = self.request.query_params.get('valoracionMin')
 
         if texto:
             queryset = queryset.filter(Q(title__icontains=texto) | Q(description__icontains=texto))
@@ -52,6 +55,13 @@ class AuctionListCreate(generics.ListCreateAPIView):
                 queryset = queryset.filter(closing_date__gt=timezone.now())
             elif is_open.lower() == 'false':
                 queryset = queryset.filter(closing_date__lte=timezone.now())
+        
+        if valoracion_min:
+            # Anota cada subasta con su rating promedio y filtra
+            queryset = queryset.annotate(
+                avg_rating=Coalesce(Avg('ratings__rating'), Value(1.0, output_field=FloatField()))
+            ).filter(avg_rating__gte=float(valoracion_min))
+
 
 
         return queryset
