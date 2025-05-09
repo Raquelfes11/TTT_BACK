@@ -203,3 +203,24 @@ class CommentRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
 
     def perform_destroy(self, instance):
         instance.delete()
+
+class UserRatingListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user_ratings = Rating.objects.filter(user=request.user).select_related('auction', 'auction__category')
+        data = []
+
+        for rating in user_ratings:
+            auction = rating.auction
+            data.append({
+                "id": rating.id,
+                "rating": rating.rating,
+                "auction_title": auction.title,
+                "auction_price": auction.price,
+                "auction_category": auction.category.name,
+                "auction_is_open": auction.closing_date > timezone.now(),
+                "auction_thumbnail": auction.thumbnail
+            })
+
+        return Response(data)
