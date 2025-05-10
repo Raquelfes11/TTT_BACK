@@ -221,7 +221,8 @@ class UserRatingListView(APIView):
                 "auction_price": auction.price,
                 "auction_category": auction.category.name,
                 "auction_is_open": auction.closing_date > timezone.now(),
-                "auction_thumbnail": auction.thumbnail
+                "auction_thumbnail": auction.thumbnail,
+                "auction_id": auction.id
             })
 
         return Response(data)
