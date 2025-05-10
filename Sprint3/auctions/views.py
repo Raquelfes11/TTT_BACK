@@ -225,3 +225,29 @@ class UserRatingListView(APIView):
             })
 
         return Response(data)
+    
+class UserCommentListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user_comments = Comment.objects.filter(user=request.user).select_related('auction', 'auction__category')
+        data = []
+
+        for comment in user_comments:
+            print(f"Comentario ID: {comment.id}, Texto: {comment.text}")
+            auction = comment.auction
+            data.append({
+                "id": comment.id,
+                "title": comment.title,
+                "text": comment.text,
+                "created_at": comment.created_at,
+                "auction_title": auction.title,
+                "auction_price": auction.price,
+                "auction_category": auction.category.name,
+                "auction_is_open": auction.closing_date > timezone.now(),
+                "auction_thumbnail": auction.thumbnail,
+                "auction_id": auction.id
+            })
+
+        return Response(data)
+
