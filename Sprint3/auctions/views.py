@@ -12,7 +12,7 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Avg, Q, F, Value, FloatField
 from django.db.models.functions import Coalesce
 from django.core.exceptions import PermissionDenied
-from .permissions import IsOwnerOrAdmin, IsAuthenticatedOrReadOnly, IsAdminOrReadOnly, IsBidderOrAdmin
+from .permissions import IsOwnerOrAdmin, IsAuthenticatedOrReadOnly, IsAdminOrReadOnly, IsBidderOrAdmin, IsCommentOwnerOrAdmin
 
 # Create your views here.
 class CategoryListCreate(generics.ListCreateAPIView):
@@ -184,7 +184,8 @@ class CommentListCreate(generics.ListCreateAPIView):
         serializer.save(user=self.request.user, auction=auction)
 
 class CommentRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated] HE CAMBIADO ESTO!!
+    permission_classes = [IsCommentOwnerOrAdmin]
     serializer_class = CommentSerializer
     lookup_url_kwarg = "comment_id"
 
