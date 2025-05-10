@@ -158,10 +158,7 @@ class RatingCreateUpdateDelete(generics.RetrieveUpdateDestroyAPIView):
 
     def get_object(self):
         auction_id = self.kwargs["auction_id"]
-        rating = get_object_or_404(Rating, auction_id=auction_id, id=self.kwargs['pk'])
-        # Verifica si el usuario es el propietario de la valoración
-        if rating.user != self.request.user:
-            raise PermissionDenied("No tienes permiso para eliminar esta valoración.")
+        rating = get_object_or_404(Rating, auction_id=auction_id, user=self.request.user)
         return rating
 
     def perform_update(self, serializer):
